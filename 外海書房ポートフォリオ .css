@@ -1,0 +1,176 @@
+body {
+  margin: 0;
+  font-family: "Hiragino Kaku Gothic ProN", sans-serif;
+  line-height: 1.6;
+  
+  background-color: #fff;
+  color: #333;
+}
+
+.logo {
+  width: 200px;
+  display: block;
+  margin: 20px auto;
+}
+
+.menu {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+  background-color: #f0f0f0;
+}
+
+.menu li {
+  margin: 0 15px;
+}
+
+.menu a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+.concept {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+  background-size: cover;
+  background-position: center;
+  color: white;
+  padding: 100px 20px;
+  text-align: center;
+  position: relative;
+}
+
+.concept .overlay {
+  background-color: rgba(6, 61, 189, 0.692);
+  padding: 40px;
+  border-radius: 10px;
+  max-width: 730px;  /* ←追加：適切な幅に制限 */
+  margin: 0 auto;    /* ←追加：中央寄せ */
+}
+
+
+.link-image {
+  width: 90%;
+  max-width: 600px;
+  display: block;
+  margin: 20px auto;
+}
+
+section {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.overlay {
+/*position: relative;*/
+  width: 100%;
+  height: 110vh;
+  display: flex;
+  flex-direction: column; /* 上から下に並べる */
+  justify-content: center; /* 縦方向：中央揃え */
+  align-items: center;     /* 横方向：中央揃え */
+  padding: 40px;
+  border-radius: 10px;
+}
+
+/* 上部見出し */
+.headline {
+  margin-bottom: 20px; /* 見出しと縦書きの間隔調整 */
+  display: flex;
+  justify-content: center;
+  top: 20px;
+  width: 100%;
+  color: white;
+  font-family: "游明朝", serif;
+}
+
+/* 縦書きテキストコンテナ */
+.vertical-text {
+  writing-mode: vertical-rl;
+  font-family: "游明朝", serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.8;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* ← 縦の「行頭」を揃える決め手 */
+}
+
+.vertical-text span {
+  display: block;
+    padding-right: 0.2em; /* 縦書きにおける行間調整 */
+    line-height: 1.8;      /* 行高でも調整できる */
+  
+}
+
+.slideshow-container {
+  max-width: 800px;
+  margin: 40px auto;
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.slideshow {
+  position: relative;
+  width: 100%;
+  height: 600px;
+}
+
+.slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* 縦横比を保ってトリミング。バランス良い表示に◎ */
+  border-radius: 10px;
+}
+
+.slide.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+.slideshow-buttons {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.slideshow-buttons button {
+  background-color: #064dbd;
+  color: white;
+  font-size: 1.2em;
+  margin: 0 10px;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.slideshow-buttons button:hover {
+  background-color: #022b74;
+}
+
+.link-image {
+  width: 90%;
+  max-width: 600px;
+  height: auto;
+  display: block;
+  margin: 20px auto;
+  border-radius: 10px;
+}
+
+.base-image {
+  height: 300px; /* 任意の高さに調整 */
+  object-fit: cover; /* トリミングで見た目を整える */
+}
