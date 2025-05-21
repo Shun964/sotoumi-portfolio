@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>外海書房</title>
+  <link rel="stylesheet" href="外海書房ポートフォリオ .css">
+</head>
+<body>
+  <!-- 1. ロゴ -->
+  <header>
+    <img src="img/外海書房ロゴ .jpeg" alt="外海書房ロゴ.jpeg" class="logo">
+  </header>
+
+  <!-- 2. 見出し -->
+  <nav>
+    <ul class="menu">
+      <li><a href="#about">外海書房について</a></li>
+      <li><a href="https://note.com/sotoumi2601">店主の作品</a></li>
+      <li><a href="https://sotoumi2601.thebase.in/">古本、ZINE</a></li>
+      <li><a href="https://www.instagram.com/sotoumi2601/">インスタグラム</a></li>
+    </ul>
+  </nav>
+
+ <!-- 2.5 写真スライド -->
+<section class="slideshow-container">
+  <div class="slideshow">
+    <div class="slide active"><img src="img/出店01.jpeg" alt="写真1"></div>
+    <div class="slide"><img src="img/出店02.jpeg" alt="写真2"></div>
+    <div class="slide"><img src="img/出店03.jpeg" alt="写真3"></div>
+    <div class="slide"><img src="img/出店04.jpeg" alt="写真4"></div>
+    <div class="slide"><img src="img/朗読.jpeg" alt="写真5"></div>
+  </div>
+  <div class="slideshow-buttons">
+    <button onclick="prevSlide()">←</button>
+    <button onclick="nextSlide()">→</button>
+  </div>
+</section>
+
+  
+  <!-- 3. コンセプト -->
+  <section class="concept">
+    <div class="overlay">
+     <div class="headline">
+       <h2>
+        香川を旅する、小説を書く移動古本屋です。<br>
+        心の海へ潜る、ことばと物語を届けます。
+       </h2>
+     </div>       
+     <p class="vertical-text">
+        <span > 人の心には、海があると思う。 </span><br>
+        <span>広く、深く、記憶や感情のすべてを携えて</span><br>
+        <span> ときに、予期せぬ荒波となって、私たちを揺らす。</span><br>
+        <span>「自分の心は、自分が誰よりも知っている」</span><br>
+        <span>そう思っても、心の海は、自分という陸地から</span><br>
+        <span>あまりにも遠く離れて感じる時がある。</span><br>
+        <span>人はその時、言葉や物語を通して、自らの心の海へ潜り、</span><br>
+        <span>想像も付かなかった何かを見つけようとします。</span><br>
+        <span>外海書房は店主の書いた小説や、読んできた本を販売しています。</span><br>
+        <span>そこにある言葉や物語が、</span><br>
+        <span>誰かが自らの海へと潜っていくための灯火となるように、</span><br>
+        <span>外海書房は今日も、小さな航海を続けます。</span><br>
+      </p>
+    </div>
+  </section>
+
+  <!-- 4. noteへのリンク画像 -->
+  <section id="works">
+    <h2>店主の作品↓</h2>
+    <a href="https://note.com/sotoumi2601" target="_blank">
+      <img src="img/note.jpeg" alt="noteリンク画像" class="link-image">
+    </a>
+  </section>
+
+  <!-- 5. Baseへのリンク画像 -->
+  <section id="shop">
+    <h2>古本・ZINE↓</h2>
+    <a href="https://sotoumi2601.thebase.in/" target="_blank">
+      <img src="img/base.jpeg" alt="Baseリンク画像" class="link-image base-image">
+    </a>
+  </section>
+
+  <!-- 6. Instagram埋め込み -->
+  <section id="instagram">
+    <h2>Instagram</h2>
+ <!-- Elfsight Instagram Feed -->
+<script src="https://static.elfsight.com/platform/platform.js" async></script>
+<div class="elfsight-app-c4b4bcde-33ac-4dbd-8669-3b7815111c38" data-elfsight-app-lazy></div>
+  </section>
+   <!-- HTMLの末尾（</body>の直前）に追加 -->
+<script src="外海書房ポートフォリオ.js"></script>
+
+</body>
+</html>
