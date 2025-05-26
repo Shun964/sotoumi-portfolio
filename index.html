@@ -4,42 +4,55 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>外海書房</title>
-  <link rel="stylesheet" href="外海書房ポートフォリオ .css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- 1. ロゴ -->
+  <!----- 1. ロゴ ----->
   <header>
     <img src="img/logo.jpeg" alt="外海書房ロゴ.jpeg" class="logo">
   </header>
 
-  <!-- 2. 見出し -->
-  <nav>
-    <ul class="menu">
+  <!----- 2. 見出し ----->
+
+  <!-- デスクトップ用ナビ -->
+<nav class="main-nav">
+  <ul class="menu">
+    <li><a href="#about">外海書房について</a></li>
+    <li><a href="https://note.com/sotoumi2601">店主の作品</a></li>
+    <li><a href="https://sotoumi2601.thebase.in/">古本、ZINE</a></li>
+    <li><a href="https://www.instagram.com/sotoumi2601/">Instagram</a></li>
+  </ul>
+</nav>
+
+   <!-- ハンバーガーメニュー -->
+<div class="hamburger" onclick="toggleMenu()">☰</div>
+
+  <!-- ナビゲーションメニュー -->
+<nav class="mobile-nav" id="mobileNav">
+    <ul class="mobile-menu">
       <li><a href="#about">外海書房について</a></li>
       <li><a href="https://note.com/sotoumi2601">店主の作品</a></li>
       <li><a href="https://sotoumi2601.thebase.in/">古本、ZINE</a></li>
-      <li><a href="https://www.instagram.com/sotoumi2601/">インスタグラム</a></li>
+      <li><a href="https://www.instagram.com/sotoumi2601/">Instagram</a></li>
     </ul>
   </nav>
 
  <!-- 2.5 写真スライド -->
-<section class="slideshow-container">
-  <div class="slideshow">
-    <div class="slide active"><img src="img/shutten01.jpeg" alt="写真1"></div>
-    <div class="slide"><img src="img/shutten02.jpeg" alt="写真2"></div>
-    <div class="slide"><img src="img/shutten03.jpeg" alt="写真3"></div>
-    <div class="slide"><img src="img/shutten04.jpeg" alt="写真4"></div>
-    <div class="slide"><img src="img/roudoku.jpeg" alt="写真5"></div>
+ <div class="carousel-container">
+  <button class="arrow left" onclick="prevSlide()">←</button>
+  <div class="carousel" id="carousel">
+    <img src="img/shutten01.jpeg" alt="写真1">
+    <img src="img/shutten02.jpeg" alt="写真2">
+    <img src="img/shutten03.jpeg" alt="写真3">
+    <img src="img/shutten04.jpeg" alt="写真4">
+    <img src="img/roudoku.jpeg" alt="写真5">
   </div>
-  <div class="slideshow-buttons">
-    <button onclick="prevSlide()">←</button>
-    <button onclick="nextSlide()">→</button>
-  </div>
-</section>
-
+  <button class="arrow right" onclick="nextSlide()">→</button>
+  <div class="indicators" id="indicators"></div>
+</div>
   
   <!-- 3. コンセプト -->
-  <section class="concept">
+  <section  id="about" class="concept fade-up-trigger"> 
     <div class="overlay">
      <div class="headline">
        <h2>
@@ -54,9 +67,11 @@
         <span>「自分の心は、自分が誰よりも知っている」</span><br>
         <span>そう思っても、心の海は、自分という陸地から</span><br>
         <span>あまりにも遠く離れて感じる時がある。</span><br>
-        <span>人はその時、言葉や物語を通して、自らの心の海へ潜り、</span><br>
+        <span>人はその時、言葉や物語を通して、</span><br>
+        <span> 自らの心の海へ潜り、</span><br>
         <span>想像も付かなかった何かを見つけようとします。</span><br>
-        <span>外海書房は店主の書いた小説や、読んできた本を販売しています。</span><br>
+        <span>外海書房は店主の書いた小説や、</span><br>
+        <span> 読んできた本を販売しています。</span><br>
         <span>そこにある言葉や物語が、</span><br>
         <span>誰かが自らの海へと潜っていくための灯火となるように、</span><br>
         <span>外海書房は今日も、小さな航海を続けます。</span><br>
@@ -64,31 +79,41 @@
     </div>
   </section>
 
-  <!-- 4. noteへのリンク画像 -->
-  <section id="works">
-    <h2>店主の作品↓</h2>
-    <a href="https://note.com/sotoumi2601" target="_blank">
-      <img src="img/note.jpeg" alt="noteリンク画像" class="link-image">
-    </a>
-  </section>
+ <!-- 4. Noteへのリンク画像 -->
+<section id="works" class="fade-up-trigger">
+  <a href="https://note.com/sotoumi2601" target="_blank" class="link-image-container">
+    <img src="img/note.png" alt="noteリンク画像" class="link-image">
+    <div class="overlay-text">店主の作品</div>
+  </a>
+</section>
 
-  <!-- 5. Baseへのリンク画像 -->
-  <section id="shop">
-    <h2>古本・ZINE↓</h2>
-    <a href="https://sotoumi2601.thebase.in/" target="_blank">
-      <img src="img/base.jpeg" alt="Baseリンク画像" class="link-image base-image">
-    </a>
-  </section>
+<!-- 5. Baseへのリンク画像 -->
+<section id="shop" class="fade-up-trigger">
+  <a href="https://sotoumi2601.thebase.in/" target="_blank" class="link-image-container">
+    <img src="img/base.png" alt="Baseリンク画像" class="link-image">
+    <div class="overlay-text">古本・ZINE</div>
+  </a>
+</section>
+
 
   <!-- 6. Instagram埋め込み -->
-  <section id="instagram">
-    <h2>Instagram</h2>
+  <section id="instagram" class="fade-up-trigger">
  <!-- Elfsight Instagram Feed -->
 <script src="https://static.elfsight.com/platform/platform.js" async></script>
 <div class="elfsight-app-c4b4bcde-33ac-4dbd-8669-3b7815111c38" data-elfsight-app-lazy></div>
   </section>
-   <!-- HTMLの末尾（</body>の直前）に追加 -->
-<script src="外海書房ポートフォリオ.js"></script>
+
+<!--スクリプトのリンク -->
+<script src="script.js"></script>
+
+<!--ハンバーガーメニューのスクリプト-->
+<script>
+  function toggleMenu() {
+    const nav = document.getElementById('mobileNav');
+    nav.style.display = (nav.style.display === 'block') ? 'none' : 'block';
+  }
+</script>
+
 
 </body>
 </html>

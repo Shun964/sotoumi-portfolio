@@ -6,13 +6,15 @@ body {
   background-color: #fff;
   color: #333;
 }
-
+/*----- 1. ロゴ -----*/
 .logo {
   width: 200px;
   display: block;
   margin: 20px auto;
 }
+/*----- 2. 見出し -----*/
 
+/*デスクトップメニュー*/
 .menu {
   display: flex;
   justify-content: center;
@@ -30,7 +32,192 @@ body {
   color: #333;
   font-weight: bold;
 }
+/*スマホ用*/
+.mobile.menu {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+  background-color: #f0f0f0;
+}
 
+.mobile-menu li {
+  margin: 0 15px;
+}
+
+.mobile-menu li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+/* デフォルトは非表示 */
+.hamburger {
+  display: none;
+  font-size: 28px;
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  cursor: pointer;
+  z-index: 20;
+}
+
+.mobile-nav {
+  display: none;
+  position: absolute;
+  top: 60px;
+  right: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  z-index: 15;
+}
+
+.mobile-nav ul {
+  list-style: none;
+  padding: 10px 20px;
+  margin: 0;
+}
+
+.mobile-nav ul li {
+  margin-bottom: 10px;
+}
+
+.mobile-nav ul li a {
+  text-decoration: none;
+  color: #333;
+}
+
+/* スマホ向け：ナビ非表示＋ハンバーガー表示 */
+@media screen and (max-width: 767px) {
+  .main-nav {  /* 既存のナビクラスがあれば非表示に */
+    display: none;
+  }
+
+  .hamburger {
+    display: block;
+  }
+}
+
+
+/*-----2.5 写真スライド-----*/
+.carousel-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  max-width: 600px; /*  画像全体の横幅の上限 */
+  margin: 0 auto;    /*  中央寄せ */
+}
+
+.carousel {
+  display: flex;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none; /* Firefox非表示 */
+  justify-content: start;  
+  gap: 16px;                /* 画像と画像の間に余白 */
+}
+
+.carousel::-webkit-scrollbar {
+  display: none; /* Chrome/Safari非表示 */
+}
+
+.carousel img {
+  width: 600px; /* 固定値にするのが一番安定する */
+  height: 600px;           /* ← 高さを固定 */
+  object-fit: cover;       /* ← 高さに収まるようにトリミング */
+  border-radius: 16px;     /*  角を丸める */
+  flex-shrink: 0;
+  scroll-snap-align: start;
+}
+
+/* スマホ向け */
+@media screen and (max-width: 767px) {
+  .carousel img {
+    width: 100vw; /* 画面幅の90%にする */
+    border-radius: 12px;
+  }
+}
+
+/*-----インジケーター、矢印-----*/
+
+/* 最初は両方非表示 */
+.arrow {
+  display: none;
+}
+
+.indicators {
+  display: none;
+}
+
+/* デスクトップ向け（幅768px以上） */
+@media screen and (min-width: 768px) {
+  .arrow {
+    display: block;  /* 矢印を表示 */
+  }
+
+  .indicators {
+    display: none;   /* インジケーターは非表示 */
+  }
+}
+
+/* スマホ向け（幅768px未満） */
+@media screen and (max-width: 767px) {
+  .arrow {
+    display: none;   /* 矢印を非表示 */
+  }
+
+  .indicators {
+    display: flex;   /* インジケーターを表示 */
+  }
+}
+
+.indicators {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  gap: 8px;
+}
+
+.indicators span {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.5);
+  transition: background-color 0.3s;
+}
+
+.indicators span.active {
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(255,255,255,0.5);
+  border: none;
+  padding: 12px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.arrow.left {
+  left: 10px;
+}
+
+.arrow.right {
+  right: 10px;
+}
+
+.arrow:hover {
+  background-color: rgba(255,255,255,0.8);
+}
+
+/*----- 3. コンセプト -----*/
 .concept {
   display: flex;
   justify-content: center;
@@ -52,21 +239,12 @@ body {
   margin: 0 auto;    /* ←追加：中央寄せ */
 }
 
-
-.link-image {
-  width: 90%;
-  max-width: 600px;
-  display: block;
-  margin: 20px auto;
-}
-
 section {
   padding: 40px 20px;
   text-align: center;
 }
 
 .overlay {
-/*position: relative;*/
   width: 100%;
   height: 110vh;
   display: flex;
@@ -76,7 +254,6 @@ section {
   padding: 40px;
   border-radius: 10px;
 }
-
 /* 上部見出し */
 .headline {
   margin-bottom: 20px; /* 見出しと縦書きの間隔調整 */
@@ -88,89 +265,95 @@ section {
   font-family: "游明朝", serif;
 }
 
-/* 縦書きテキストコンテナ */
+h2 {
+  font-size: clamp(20px, 4vw, 36px); /* 画面幅に応じて文字サイズを可変 */
+  white-space: normal; /* 自動改行を許可 */
+  word-break: keep-all; /* 日本語の不自然な分割を防止 */
+  line-height: 1.6; /* 行間を少し広めに */
+  text-align: center;
+}
+
+
+/* 横書きテキストコンテナ */
 .vertical-text {
-  writing-mode: vertical-rl;
+  writing-mode: horizontal-tb; /* 横書きに設定 */;
+  word-break: keep-all; /* 日本語の不自然な分割を防止 */
+  text-align: center;
   font-family: "游明朝", serif;
   margin: 0;
   padding: 0;
-  line-height: 1.8;
+  line-height: 1.2;
   display: flex;
   flex-direction: column;
-  align-items: flex-start; /* ← 縦の「行頭」を揃える決め手 */
+  font-size: clw, 36px; /* 画面幅に応じて文字サイズを可変 */
 }
 
-.vertical-text span {
+/*----- 4. noteへのリンク画像 -----*/
+
+/* 共通リンク画像のコンテナ */
+.link-image-container {
+  position: relative;
   display: block;
-    padding-right: 0.2em; /* 縦書きにおける行間調整 */
-    line-height: 1.8;      /* 行高でも調整できる */
-  
-}
-
-.slideshow-container {
-  max-width: 800px;
-  margin: 40px auto;
-  position: relative;
-  overflow: hidden;
-  border-radius: 10px;
-}
-
-.slideshow {
-  position: relative;
-  width: 100%;
-  height: 600px;
-}
-
-.slide {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  transition: opacity 0.8s ease;
-}
-
-.slide img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* 縦横比を保ってトリミング。バランス良い表示に◎ */
-  border-radius: 10px;
-}
-
-.slide.active {
-  opacity: 1;
-  z-index: 1;
-}
-
-.slideshow-buttons {
-  text-align: center;
-  margin-top: 10px;
-}
-
-.slideshow-buttons button {
-  background-color: #064dbd;
-  color: white;
-  font-size: 1.2em;
-  margin: 0 10px;
-  padding: 8px 16px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-}
-
-.slideshow-buttons button:hover {
-  background-color: #022b74;
-}
-
-.link-image {
-  width: 90%;
   max-width: 600px;
-  height: auto;
-  display: block;
-  margin: 20px auto;
-  border-radius: 10px;
+  margin: 20px auto; /* 中央寄せ & 間隔 */
+  text-align: center;
 }
 
-.base-image {
-  height: 300px; /* 任意の高さに調整 */
-  object-fit: cover; /* トリミングで見た目を整える */
+/* 共通の画像スタイル */
+.link-image {
+  width: 100%;
+  height: 600px;        /* 高さを固定 */
+  object-fit: cover;    /* 中央トリミング */
+  border-radius: 8px;
+  display: block;
+}
+
+/* 画像上のテキスト */
+.overlay-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 1.8em;
+  font-weight: bold;
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 10px 20px;
+  border-radius: 8px;
+}
+
+/* スマホ表示の調整 */
+@media screen and (max-width: 768px) {
+  .link-image {
+    height: 200px; /* 高さを少し低めに */
+  }
+
+  .overlay-text {
+    font-size: 1.2em;
+    padding: 8px 16px;
+  }
+}
+
+/* アニメーションの定義 */
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 初期状態は非表示 */
+.fade-up-trigger {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+/* 表示時にアニメーションを適用 */
+.fade-up {
+  animation: fadeUp 1s ease forwards;
 }
